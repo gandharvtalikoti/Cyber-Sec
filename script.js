@@ -78,3 +78,39 @@ function generateDigrams(message) {
     }
     return digrams;
 }
+
+function encryptDigram(digram, matrix) {
+    // Implement the Playfair cipher rules for encrypting a digram
+    var char1 = digram[0];
+    var char2 = digram[1];
+
+    var index1 = matrix.indexOf(char1);
+    var index2 = matrix.indexOf(char2);
+
+    var row1 = Math.floor(index1 / 5);
+    var col1 = index1 % 5;
+
+    var row2 = Math.floor(index2 / 5);
+    var col2 = index2 % 5;
+
+    if (row1 === row2) {
+        // Same row, shift columns
+        col1 = (col1 + 1) % 5;
+        col2 = (col2 + 1) % 5;
+    } else if (col1 === col2) {
+        // Same column, shift rows
+        row1 = (row1 + 1) % 5;
+        row2 = (row2 + 1) % 5;
+    } else {
+        // Different row and column, swap columns
+        var temp = col1;
+        col1 = col2;
+        col2 = temp;
+    }
+
+    var encryptedChar1 = matrix[row1 * 5 + col1];
+    var encryptedChar2 = matrix[row2 * 5 + col2];
+
+    return encryptedChar1 + encryptedChar2;
+}
+
