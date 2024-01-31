@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,38 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+
 <body>
-    <h1>Hello world!</h1>
-    
+    <div class="container">
+        <h1 class="mt-4 mb-4">Playfair Cipher</h1>
+        <p>Playfair cipher is a manual symmetric encryption technique and was the first literal digraph substitution
+            cipher.</p>
+        <p>Instructions:</p>
+        <ol>
+            <li>Enter a key (without spaces) in the "Enter Key" field.</li>
+            <li>Enter the message in the "Enter Message" field.</li>
+            <li>Click the "Encrypt" button to generate the ciphertext.</li>
+            <li>Click the "Copy to Clipboard" button to copy the generated ciphertext.</li>
+        </ol>
+        <div class="form-group">
+            <label for="key">Enter Key:</label>
+            <input type="text" class="form-control" id="key" placeholder="Enter a key">
+        </div>
+
+        <div class="form-group">
+            <label for="message">Enter Message:</label>
+            <textarea class="form-control" id="message" rows="3" placeholder="Enter the message"></textarea>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="encrypt()">Encrypt</button>
+
+        <div id="result" class="mt-4">
+            <label for="cipher">Encrypted Message:</label>
+            <textarea class="form-control" id="cipher" rows="3" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
