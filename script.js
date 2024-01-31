@@ -45,3 +45,21 @@ function createMatrix(key) {
 
   return matrix;
 }
+
+function playfairEncrypt(message, matrix) {
+    // Step 1: Prepare the message by removing non-alphabetic characters and grouping letters
+    var cleanedMessage = prepareMessage(message);
+
+    // Step 2: Generate pairs of digrams from the prepared message
+    var digrams = generateDigrams(cleanedMessage);
+
+    // Step 3: Encrypt each digram using the Playfair cipher rules
+    var encryptedMessage = "";
+    for (var i = 0; i < digrams.length; i++) {
+        var digram = digrams[i];
+        var encryptedDigram = encryptDigram(digram, matrix);
+        encryptedMessage += encryptedDigram;
+    }
+
+    return "Encrypted: " + encryptedMessage;
+}
