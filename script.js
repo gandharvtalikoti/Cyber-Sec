@@ -61,7 +61,7 @@ function playfairEncrypt(message, matrix) {
         encryptedMessage += encryptedDigram;
     }
 
-    return "Encrypted: " + encryptedMessage;
+    return encryptedMessage;
 }
 
 function prepareMessage(message) {
