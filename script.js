@@ -63,3 +63,18 @@ function playfairEncrypt(message, matrix) {
 
     return "Encrypted: " + encryptedMessage;
 }
+
+function prepareMessage(message) {
+    // Remove non-alphabetic characters and convert to lowercase
+    return message.replace(/[^a-z]/g, '').toLowerCase();
+}
+
+function generateDigrams(message) {
+    var digrams = [];
+    for (var i = 0; i < message.length; i += 2) {
+        var firstChar = message[i];
+        var secondChar = (i + 1 < message.length) ? message[i + 1] : 'x';
+        digrams.push(firstChar + secondChar);
+    }
+    return digrams;
+}
